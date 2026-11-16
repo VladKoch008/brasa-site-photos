@@ -58,10 +58,22 @@ const portal = (() => {
     return Number.isNaN(date.getTime()) ? value : date.toLocaleDateString("uk-UA", { day: "numeric", month: "long", year: "numeric" });
   }
 
+  function setRegistrationPasswordVisibility(button, visible) {
+    $(button.getAttribute("aria-controls")).type = visible ? "text" : "password";
+    button.setAttribute("aria-pressed", String(visible));
+  }
+
+  function hideRegistrationPasswords() {
+    for (const button of $("registerForm").querySelectorAll('.password-toggle[aria-pressed="true"]')) {
+      setRegistrationPasswordVisibility(button, false);
+    }
+  }
+
   function showAuthTab(which) {
     const login = which === "login";
     $("loginForm").hidden = !login;
     $("registerForm").hidden = login;
+    if (login) hideRegistrationPasswords();
     for (const [id, selected] of [["loginTab", login], ["registerTab", !login]]) {
       $(id).classList.toggle("is-active", selected);
       $(id).setAttribute("aria-selected", String(selected));
@@ -446,6 +458,13 @@ const portal = (() => {
     $("registerTab").addEventListener("click", () => showAuthTab("register"));
     $("loginForm").addEventListener("submit", event => { event.preventDefault(); submitAuth("loginForm", false); });
     const registerForm = $("registerForm");
+    for (const button of registerForm.querySelectorAll(".password-toggle")) {
+      button.addEventListener("click", () => {
+        setRegistrationPasswordVisibility(button, button.getAttribute("aria-pressed") === "false");
+      });
+      button.hidden = false;
+    }
+    registerForm.addEventListener("reset", hideRegistrationPasswords);
     registerForm.addEventListener("submit", event => { event.preventDefault(); submitAuth("registerForm", true); });
     registerForm.addEventListener("focusout", event => {
       const field = event.target.name;

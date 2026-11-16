@@ -195,7 +195,18 @@ input::placeholder,textarea::placeholder{color:#a89c8e}
 }
 .register-phone:focus-within{outline:2px solid var(--gold-light);outline-offset:4px}
 .register-phone input:focus-visible{outline:none}
-.register-field>input[aria-invalid="true"],.register-phone:has(input[aria-invalid="true"]){border-color:#ffb6a6}
+.register-password{position:relative}
+.auth-form .register-password input{width:100%;padding-right:52px}
+.register-password input::-ms-reveal{display:none}
+.password-toggle{
+  position:absolute;top:1px;bottom:1px;right:1px;width:44px;
+  display:grid;place-items:center;padding:0;border:0;border-radius:0 6px 6px 0;
+  background:transparent;color:var(--gold-light);cursor:pointer;
+}
+.password-toggle:hover{background:#2b2115}
+.password-toggle:focus-visible{outline-offset:-3px}
+.password-toggle[aria-pressed="false"] .password-toggle-slash{display:none}
+.register-field>input[aria-invalid="true"],.register-password>input[aria-invalid="true"],.register-phone:has(input[aria-invalid="true"]){border-color:#ffb6a6}
 .auth-form .button{margin-top:14px}
 .profile-head{display:flex;align-items:start;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
 .profile-head h3{margin-bottom:5px;font-size:26px}

@@ -8,8 +8,8 @@
   <title>Brasa з фото: ресторан і бар</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/styles.css?v=photos1">
-  <script type="module" src="assets/portal.js?v=photos3"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=photos2">
+  <script type="module" src="assets/portal.js?v=photos4"></script>
 </head>
 <body>
   <div class="site-scene" aria-hidden="true"></div>
@@ -25,6 +25,7 @@
     <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="19" r="2"/><path d="m8 11 8-5M8 13l8 5"/></symbol>
     <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
     <symbol id="icon-minus" viewBox="0 0 24 24"><path d="M4 12h16"/></symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.5"/></symbol>
     <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><circle cx="12" cy="13" r="4"/></symbol>
   </svg>
 
@@ -216,13 +217,23 @@
               </div>
               <div class="register-field">
                 <label for="registerPassword">Пароль *</label>
-                <input id="registerPassword" name="password" type="password" autocomplete="new-password" minlength="8" aria-describedby="registerPasswordHint registerPasswordError" required>
+                <div class="register-password">
+                  <input id="registerPassword" name="password" type="password" autocomplete="new-password" autocapitalize="off" autocorrect="off" spellcheck="false" minlength="8" aria-describedby="registerPasswordHint registerPasswordError" required>
+                  <button class="password-toggle" type="button" aria-label="Показати пароль" aria-controls="registerPassword" aria-pressed="false" hidden>
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-eye"/><path class="password-toggle-slash" d="m4 4 16 16"/></svg>
+                  </button>
+                </div>
                 <small id="registerPasswordHint">Від 8 до 128 символів, щонайменше одна літера й одна цифра від 0 до 9. Спецсимволи дозволені.</small>
                 <p class="form-error" id="registerPasswordError" aria-live="polite" hidden></p>
               </div>
               <div class="register-field">
                 <label for="registerConfirm">Повторіть пароль *</label>
-                <input id="registerConfirm" name="password_confirm" type="password" autocomplete="new-password" aria-describedby="registerConfirmHint registerConfirmError" required>
+                <div class="register-password">
+                  <input id="registerConfirm" name="password_confirm" type="password" autocomplete="new-password" autocapitalize="off" autocorrect="off" spellcheck="false" aria-describedby="registerConfirmHint registerConfirmError" required>
+                  <button class="password-toggle" type="button" aria-label="Показати повторно введений пароль" aria-controls="registerConfirm" aria-pressed="false" hidden>
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-eye"/><path class="password-toggle-slash" d="m4 4 16 16"/></svg>
+                  </button>
+                </div>
                 <small id="registerConfirmHint">Введіть той самий пароль. Регістр літер і пробіли мають збігатися.</small>
                 <p class="form-error" id="registerConfirmError" aria-live="polite" hidden></p>
               </div>
