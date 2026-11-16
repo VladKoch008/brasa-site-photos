@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0907">
+  <meta name="description" content="Brasa: ресторан і бар з меню, бронюванням, замовленням та відгуками.">
+  <title>Brasa з фото: ресторан і бар</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/styles.css?v=photos1">
+  <script type="module" src="assets/portal.js?v=photos3"></script>
+</head>
+<body>
+  <div class="site-scene" aria-hidden="true"></div>
+  <div class="site-shade" aria-hidden="true"></div>
+
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24"><path d="M4 8h16l-1 12H5L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-12a7 7 0 0 0-14 0c0 6.6 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M7 3H4a2 2 0 0 0-2 2c0 9.4 7.6 17 17 17a2 2 0 0 0 2-2v-3l-5-2-2.2 2.2a15 15 0 0 1-7-7L9 8 7 3Z"/></symbol>
+    <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="19" r="2"/><path d="m8 11 8-5M8 13l8 5"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24"><path d="M4 12h16"/></symbol>
+    <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><circle cx="12" cy="13" r="4"/></symbol>
+  </svg>
+
+  <div class="site-wrap">
+    <header class="site-header">
+      <a class="brand" href="#home" data-view-link="home" aria-label="Brasa, головна">
+        <span class="brand-name">BRASA</span>
+        <span class="brand-line">РЕСТОРАН · БАР</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Основна навігація">
+        <a class="nav-link is-current" href="#home" data-view-link="home">Головна</a>
+        <div class="nav-menu" id="menuNavigation">
+          <div class="nav-menu-heading"><a class="nav-link" href="#menu" data-view-link="menu" aria-expanded="false" aria-controls="menuDropdown">Меню</a></div>
+          <div class="nav-dropdown" id="menuDropdown"></div>
+        </div>
+        <a class="nav-link" href="#booking" data-view-link="booking">Забронювати столик</a>
+        <a class="nav-link" href="#order" data-view-link="order">Замовити</a>
+        <a class="nav-link" href="#reviews" data-view-link="reviews">Відгуки</a>
+        <a class="nav-link" href="#contacts" data-view-link="contacts">Контакти</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-account" href="#account" data-view-link="account" data-guest-only>Увійти</a>
+        <a class="header-account" href="#account" data-view-link="account" data-user-only hidden>Кабінет</a>
+        <button class="icon-button cart-trigger" type="button" aria-label="Відкрити кошик" title="Кошик">
+          <svg class="icon"><use href="#icon-bag"/></svg>
+          <span class="cart-count" aria-live="polite">0</span>
+        </button>
+        <button class="icon-button menu-trigger" id="menuTrigger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobileNav">
+          <svg class="icon"><use href="#icon-menu"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Мобільна навігація" hidden>
+      <a href="#home" data-view-link="home">Головна</a>
+      <a href="#menu" data-view-link="menu">Меню</a>
+      <a href="#booking" data-view-link="booking">Забронювати столик</a>
+      <a href="#order" data-view-link="order">Замовити</a>
+      <a href="#reviews" data-view-link="reviews">Відгуки</a>
+      <a href="#contacts" data-view-link="contacts">Контакти</a>
+      <a href="#account" data-view-link="account" data-guest-only>Увійти</a>
+      <a href="#account" data-view-link="account" data-user-only hidden>Кабінет</a>
+      <a href="#manager" data-view-link="manager" data-manager-only hidden>Менеджер</a>
+    </nav>
+
+    <nav class="breadcrumbs" id="breadcrumbs" aria-label="Навігаційний ланцюжок" hidden></nav>
+
+    <main id="mainContent">
+      <section class="view home-view is-active" id="home" aria-labelledby="homeTitle">
+        <div class="home-content">
+          <p class="eyebrow"><span class="eyebrow-rule"></span> ВЕЧОРИ, ЯКІ ХОЧЕТЬСЯ ПОВТОРИТИ <span class="eyebrow-rule"></span></p>
+          <h1 id="homeTitle"><span>Brasa - це</span><br>затишок, жива музика<br class="desktop-break"> та смачна їжа</h1>
+          <p class="home-subtitle">Атмосфера теплих зустрічей у серці міста.</p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="#menu" data-view-link="menu">Переглянути меню <svg class="icon"><use href="#icon-arrow"/></svg></a>
+            <a class="button button-outline" href="#booking" data-view-link="booking">Забронювати столик</a>
+          </div>
+        </div>
+        <div class="home-bottom"><span>КИЇВ · РЕСТОРАН І БАР</span><span class="home-bottom-line"></span><span>СТВОРЕНО ДЛЯ ЗУСТРІЧЕЙ</span></div>
+      </section>
+
+      <section class="view content-view" id="menu" aria-labelledby="menuTitle" hidden>
+        <div class="content-panel menu-panel">
+          <div class="panel-heading">
+            <div><p class="section-kicker">СМАК BRASA · МЕНЮ З ФОТО</p><h2 id="menuTitle">Наше меню<span class="gold-dot">.</span></h2><p class="section-intro">Улюблені смаки для неспішного вечора.</p></div>
+            <div class="menu-actions"><button class="icon-button manager-add" type="button" data-new-dish data-manager-only hidden aria-label="Додати страву" title="Додати страву"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg></button><button class="button button-small button-outline cart-trigger" type="button">Кошик <span class="inline-cart-count">0</span></button></div>
+          </div>
+          <div class="menu-toolbar">
+            <div class="filter-list" role="group" aria-label="Категорії страв">
+              <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Усе меню</button>
+              <button class="filter-button" type="button" data-filter="starters" aria-pressed="false">Закуски</button>
+              <button class="filter-button" type="button" data-filter="mains" aria-pressed="false">Основні</button>
+              <button class="filter-button" type="button" data-filter="desserts" aria-pressed="false">Десерти</button>
+              <button class="filter-button" type="button" data-filter="drinks" aria-pressed="false">Напої</button>
+            </div>
+            <label class="search-wrap"><span class="visually-hidden">Пошук у меню</span><input id="menuSearch" type="search" placeholder="Пошук страви…" autocomplete="off"></label>
+          </div>
+          <div class="row g-3 menu-grid" id="menuGrid" aria-live="polite"></div>
+          <p class="subtle-text" id="menuLoading" role="status">Завантажуємо меню…</p>
+          <div id="menuLoadError" hidden><p class="form-error" role="alert"></p><button class="text-button" type="button" id="retryMenu">Спробувати ще раз</button></div>
+          <p class="empty-results" id="emptyResults" hidden>За цим запитом страв не знайдено.</p>
+        </div>
+      </section>
+
+      <section class="view content-view" id="booking" aria-labelledby="bookingTitle" hidden>
+        <div class="content-panel booking-panel">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-5 booking-copy">
+              <p class="section-kicker">ВАШ ВЕЧІР У BRASA</p>
+              <h2 id="bookingTitle">Знайдемо для вас <em>ідеальний стіл.</em></h2>
+              <p class="section-intro">Оберіть день і час та залиште контактні дані. Заявка збережеться у вашому кабінеті й буде доступна менеджеру.</p>
+              <div class="booking-note"><span class="note-number">01 / 03</span><span>Кілька кроків до теплого вечора</span></div>
+            </div>
+            <div class="col-lg-7">
+              <form id="bookingForm" class="booking-form" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6"><label for="bookingDate">Дата <span aria-hidden="true">*</span></label><input id="bookingDate" name="date" type="date" required></div>
+                  <div class="col-md-6"><label for="bookingTime">Час <span aria-hidden="true">*</span></label><select id="bookingTime" name="time" required><option value="">Оберіть час</option><option>12:00</option><option>13:00</option><option>14:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select></div>
+                  <div class="col-md-6"><label for="bookingGuests">Гостей <span aria-hidden="true">*</span></label><select id="bookingGuests" name="guests" required><option value="">Кількість гостей</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></div>
+                  <div class="col-md-6"><label for="bookingName">Ваше ім’я <span aria-hidden="true">*</span></label><input id="bookingName" name="name" type="text" placeholder="Як до вас звертатися" autocomplete="name" minlength="2" required></div>
+                  <div class="col-12"><label for="bookingPhone">Номер телефону <span aria-hidden="true">*</span></label><input id="bookingPhone" name="phone" type="tel" placeholder="+380 99 123 45 67" autocomplete="tel" required></div>
+                  <div class="col-12"><label for="bookingComment">Побажання <span class="optional">необов’язково</span></label><textarea id="bookingComment" name="comment" rows="3" placeholder="Наприклад, затишний стіл біля вікна"></textarea></div>
+                </div>
+                <p class="form-error" id="bookingError" role="alert" hidden></p>
+                <button class="button button-gold form-submit" type="submit">Підтвердити бронювання <svg class="icon"><use href="#icon-arrow"/></svg></button>
+                <p class="form-disclaimer">Для бронювання потрібен обліковий запис. Менеджер може підтвердити заявку в системі.</p>
+              </form>
+              <div class="success-card" id="bookingSuccess" role="status" hidden><span class="success-mark">✓</span><h3>Заявку збережено!</h3><p id="bookingSummary"></p><button type="button" class="text-button" id="newBooking">Заповнити ще раз →</button></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view content-view" id="order" aria-labelledby="orderTitle" hidden>
+        <div class="content-panel order-panel">
+          <div class="panel-heading">
+            <div><p class="section-kicker">ЗАМОВЛЕННЯ</p><h2 id="orderTitle">Смак, який поруч<span class="gold-dot">.</span></h2><p class="section-intro">Оберіть страви й зберіть замовлення. Після оформлення воно збережеться в базі даних.</p></div>
+            <button class="button button-small button-gold cart-trigger" type="button">Перейти до кошика <svg class="icon"><use href="#icon-arrow"/></svg></button>
+          </div>
+          <div class="order-feature"><span class="order-feature-number">01</span><div><p class="section-kicker">ВИБІР ШЕФА</p><h3>Зустріч починається зі смаку.</h3><p>Невелика добірка улюблених страв Brasa для вашого вечора.</p></div></div>
+          <div class="row g-3 menu-grid" id="orderGrid"></div>
+          <div class="order-footer"><span>Шукаєте щось інше?</span><a href="#menu" data-view-link="menu">Усе меню <svg class="icon"><use href="#icon-arrow"/></svg></a></div>
+        </div>
+      </section>
+
+      <section class="view content-view contact-view" id="contacts" aria-labelledby="contactsTitle" hidden>
+        <div class="contact-panel">
+          <p class="section-kicker">БУДЬМО НА ЗВ’ЯЗКУ</p>
+          <h2 id="contactsTitle">Контакти<span class="gold-dot">.</span></h2>
+          <div class="contact-row"><span class="contact-icon"><svg class="icon"><use href="#icon-pin"/></svg></span><div><h3>Наші адреси:</h3><address>м. Київ, вул. Січових Стрільців, 1919<br>м. Київ, просп. академіка Вернадського, 5<br>м. Київ, вул. Миру, 19</address></div></div>
+          <div class="contact-row"><span class="contact-icon"><svg class="icon"><use href="#icon-phone"/></svg></span><div><h3>Робочі номери:</h3><p><a href="tel:+380991991919">+380991991919</a><br><a href="tel:+380961971425">+380961971425</a></p></div></div>
+          <div class="contact-row social-row"><span class="contact-icon"><svg class="icon"><use href="#icon-share"/></svg></span><div><h3>Наші соцмережі:</h3><p class="social-note">Посилання на офіційні сторінки можна додати після запуску ресторану.</p><div class="social-icons" aria-label="Соцмережі, демонстрація"><span class="social-icon instagram" title="Instagram">◎</span><span class="social-icon telegram" title="Telegram">➤</span><span class="social-icon x-icon" title="X">𝕏</span></div></div></div>
+        </div>
+      </section>
+
+      <section class="view content-view" id="reviews" aria-labelledby="reviewsTitle" hidden>
+        <div class="content-panel reviews-panel">
+          <div class="panel-heading"><div><p class="section-kicker">ДІАЛОГ З ГОСТЯМИ</p><h2 id="reviewsTitle">Відгуки<span class="gold-dot">.</span></h2><p class="section-intro">Поділіться враженнями, обговоріть відгуки й отримайте відповідь менеджера.</p></div></div>
+          <div class="reviews-layout">
+            <div class="reviews-list" id="reviewsList" aria-live="polite"><p class="subtle-text">Завантажуємо відгуки...</p></div>
+            <aside class="review-compose">
+              <p class="section-kicker">ВАША ДУМКА</p><h3>Залишити відгук</h3>
+              <p class="subtle-text" id="reviewGuestMessage">Щоб написати відгук, увійдіть до облікового запису.</p>
+              <form id="reviewForm" novalidate hidden>
+                <label for="reviewRating">Оцінка *</label><select id="reviewRating" name="rating" required><option value="">Оберіть оцінку</option><option value="5">5, чудово</option><option value="4">4, добре</option><option value="3">3, нормально</option><option value="2">2, є зауваження</option><option value="1">1, незадовільно</option></select>
+                <label for="reviewBody">Ваш відгук *</label><textarea id="reviewBody" name="body" rows="5" minlength="10" maxlength="1000" placeholder="Що вам сподобалося?" required></textarea>
+                <p class="form-error" id="reviewError" role="alert" hidden></p><button class="button button-gold" type="submit">Опублікувати</button>
+              </form>
+              <a class="text-button" id="reviewLoginLink" href="#account" data-view-link="account">Увійти або зареєструватися →</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="view content-view" id="account" aria-labelledby="accountTitle" hidden>
+        <div class="content-panel account-panel">
+          <p class="section-kicker">ОБЛІКОВИЙ ЗАПИС</p><h2 id="accountTitle">Особистий кабінет<span class="gold-dot">.</span></h2>
+          <div id="authGuest">
+            <p class="section-intro">Зареєструйтеся, щоб залишати відгуки, бронювати столик і переглядати свої замовлення.</p>
+            <div class="auth-tabs" role="tablist" aria-label="Вхід або реєстрація"><button class="filter-button is-active" id="loginTab" type="button" role="tab" aria-selected="true" aria-controls="loginForm">Увійти</button><button class="filter-button" id="registerTab" type="button" role="tab" aria-selected="false" aria-controls="registerForm">Реєстрація</button></div>
+            <form class="auth-form" id="loginForm" novalidate>
+              <label for="loginEmail">Електронна пошта *</label><input id="loginEmail" name="email" type="email" autocomplete="email" maxlength="254" required>
+              <label for="loginPassword">Пароль *</label><input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+              <p class="form-error" id="loginError" role="alert" hidden></p><button class="button button-gold" type="submit">Увійти</button>
+            </form>
+            <form class="auth-form" id="registerForm" novalidate hidden>
+              <div class="register-field">
+                <label for="registerName">Ім’я *</label>
+                <input id="registerName" name="name" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Олена" aria-describedby="registerNameHint registerNameError" required>
+                <small id="registerNameHint">Від 2 до 80 символів. Можна використовувати літери, пробіли, дефіс і апостроф.</small>
+                <p class="form-error" id="registerNameError" aria-live="polite" hidden></p>
+              </div>
+              <div class="register-field">
+                <label for="registerEmail">Електронна пошта *</label>
+                <input id="registerEmail" name="email" type="email" autocomplete="email" maxlength="254" placeholder="name@example.com" aria-describedby="registerEmailHint registerEmailError" required>
+                <small id="registerEmailHint">Введіть свою адресу з одним знаком @ та доменом, наприклад name@example.com. Пробіли в адресі заборонені.</small>
+                <p class="form-error" id="registerEmailError" aria-live="polite" hidden></p>
+              </div>
+              <div class="register-field">
+                <label for="registerPhone">Номер телефону *</label>
+                <div class="register-phone">
+                  <span aria-hidden="true">+380</span>
+                  <input id="registerPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(__) ___-__-__" aria-describedby="registerPhoneHint registerPhoneError" required>
+                </div>
+                <small id="registerPhoneHint">Введіть 9 цифр після +380, наприклад (67) 123-45-67. Також можна вставити повний номер із +380 або 0 на початку.</small>
+                <p class="form-error" id="registerPhoneError" aria-live="polite" hidden></p>
+              </div>
+              <div class="register-field">
+                <label for="registerPassword">Пароль *</label>
+                <input id="registerPassword" name="password" type="password" autocomplete="new-password" minlength="8" aria-describedby="registerPasswordHint registerPasswordError" required>
+                <small id="registerPasswordHint">Від 8 до 128 символів, щонайменше одна літера й одна цифра від 0 до 9. Спецсимволи дозволені.</small>
+                <p class="form-error" id="registerPasswordError" aria-live="polite" hidden></p>
+              </div>
+              <div class="register-field">
+                <label for="registerConfirm">Повторіть пароль *</label>
+                <input id="registerConfirm" name="password_confirm" type="password" autocomplete="new-password" aria-describedby="registerConfirmHint registerConfirmError" required>
+                <small id="registerConfirmHint">Введіть той самий пароль. Регістр літер і пробіли мають збігатися.</small>
+                <p class="form-error" id="registerConfirmError" aria-live="polite" hidden></p>
+              </div>
+              <p class="form-error" id="registerError" role="alert" hidden></p><button class="button button-gold" type="submit">Створити обліковий запис</button>
+            </form>
+          </div>
+          <div id="authProfile" hidden>
+            <div class="profile-head"><div><h3 id="profileName"></h3><p id="profileEmail"></p><span class="role-badge" id="profileRole"></span></div><button class="button button-small button-outline" id="logoutButton" type="button">Вийти</button></div>
+            <div class="profile-columns"><div><h3>Мої бронювання</h3><div id="myBookings" class="record-list"></div></div><div><h3>Мої замовлення</h3><div id="myOrders" class="record-list"></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view content-view" id="manager" aria-labelledby="managerTitle" hidden>
+        <div class="content-panel manager-panel">
+          <p class="section-kicker">КЕРУВАННЯ</p><h2 id="managerTitle">Панель менеджера<span class="gold-dot">.</span></h2>
+          <p class="section-intro">Керування меню, заявками й замовленнями та відповіді на відгуки.</p>
+          <div class="manager-menu-actions"><a class="button button-small button-outline" href="#menu" data-view-link="menu">Керувати меню</a><button class="button button-small button-gold" type="button" data-new-dish data-manager-only hidden><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg> Додати страву</button></div>
+          <p class="form-error" id="managerError" role="alert" hidden></p>
+          <div class="manager-stats" id="managerStats"></div>
+          <div class="manager-columns"><div><h3>Бронювання</h3><div id="managerBookings" class="record-list"></div></div><div><h3>Замовлення</h3><div id="managerOrders" class="record-list"></div></div></div>
+          <h3 class="manager-subheading">Відгуки та відповіді</h3><div id="managerReviews" class="record-list"></div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <dialog class="cart-dialog" id="cartDialog" aria-labelledby="cartTitle">
+    <div class="cart-header"><div><p class="section-kicker">ВАШ ВИБІР</p><h2 id="cartTitle">Кошик<span class="gold-dot">.</span></h2></div><button class="plain-icon-button" type="button" id="closeCart" aria-label="Закрити кошик"><svg class="icon"><use href="#icon-close"/></svg></button></div>
+    <div class="cart-content" id="cartContent" aria-live="polite"></div>
+    <div class="cart-bottom"><div class="cart-total"><span>Разом</span><strong id="cartTotal">0 ₴</strong></div><form id="checkoutForm" novalidate><label for="checkoutName">Ім’я</label><input id="checkoutName" name="name" type="text" autocomplete="name" placeholder="Ваше ім’я" minlength="2" required><label for="checkoutPhone">Телефон</label><input id="checkoutPhone" name="phone" type="tel" autocomplete="tel" placeholder="+380 99 123 45 67" required><p class="form-error" id="checkoutError" role="alert" hidden></p><button class="button button-gold cart-checkout" type="submit">Оформити замовлення <svg class="icon"><use href="#icon-arrow"/></svg></button></form><p class="form-disclaimer">Потрібен вхід до облікового запису. Замовлення збережеться в базі даних, але оплата недоступна.</p></div>
+  </dialog>
+  <dialog class="dish-dialog" id="dishDialog" aria-labelledby="dishDialogTitle">
+    <div class="dish-dialog-heading"><div><p class="section-kicker">МЕНЮ BRASA</p><h2 id="dishDialogTitle">Нова страва<span class="gold-dot">.</span></h2></div><button class="plain-icon-button" type="button" data-close-dialog="dishDialog" aria-label="Закрити форму страви"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+    <form id="dishForm" class="dish-form">
+      <label for="dishName">Назва страви</label><input id="dishName" name="name" type="text" minlength="2" maxlength="100" placeholder="Наприклад, брускета з томатами" required>
+      <div class="dish-form-row"><div><label for="dishCategory">Вид страви</label><select id="dishCategory" name="category" required><option value="starters">Закуски</option><option value="mains">Основні</option><option value="desserts">Десерти</option><option value="drinks">Напої</option></select></div><div><label for="dishPrice">Ціна, грн</label><input id="dishPrice" name="price" type="number" min="0.01" max="100000" step="0.01" placeholder="185" required></div></div>
+      <label for="dishDetail">Опис</label><textarea id="dishDetail" name="detail" minlength="2" maxlength="500" rows="3" placeholder="Інгредієнти та особливості страви" required></textarea>
+      <p class="form-error" id="dishError" role="alert" hidden></p>
+      <div class="dish-dialog-actions"><button class="button button-outline" type="button" data-close-dialog="dishDialog">Скасувати</button><button class="button button-gold" type="submit">Додати до меню</button></div>
+    </form>
+  </dialog>
+  <dialog class="dish-dialog remove-dialog" id="removeDishDialog" aria-labelledby="removeDishTitle">
+    <p class="section-kicker">КЕРУВАННЯ МЕНЮ</p><h2 id="removeDishTitle">Прибрати страву?</h2><p id="removeDishName" class="remove-dish-name"></p><p class="subtle-text">Страва зникне з меню та кошиків. Уже оформлені замовлення збережуться.</p><p class="form-error" id="removeDishError" role="alert" hidden></p>
+    <div class="dish-dialog-actions"><button class="button button-outline" type="button" data-close-dialog="removeDishDialog" autofocus>Залишити</button><button class="button button-danger" type="button" id="confirmRemoveDish">Прибрати з меню</button></div>
+  </dialog>
+  <dialog class="dish-dialog photo-dialog" id="dishPhotoDialog" aria-labelledby="dishPhotoTitle">
+    <div class="dish-dialog-heading">
+      <div><p class="section-kicker">КЕРУВАННЯ МЕНЮ</p><h2 id="dishPhotoTitle">Фото страви<span class="gold-dot">.</span></h2></div>
+      <button class="plain-icon-button" type="button" data-close-dialog="dishPhotoDialog" aria-label="Закрити фото страви"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button>
+    </div>
+    <p id="dishPhotoName" class="photo-dish-name"></p>
+    <div id="dishPhotoPreview" class="photo-dialog-preview"></div>
+    <form id="dishPhotoForm" class="dish-form photo-form">
+      <a id="dishPhotoSearch" class="button button-small button-outline photo-search" href="https://commons.wikimedia.org/wiki/Special:MediaSearch" target="_blank" rel="noopener noreferrer">Знайти фото у Wikimedia Commons <span aria-hidden="true">↗</span></a>
+      <p class="subtle-text" id="dishPhotoHint">Збережіть вибране зображення на комп’ютер і виберіть файл нижче. Підтримуються JPG, PNG і WebP до 3 МБ.</p>
+      <label for="dishPhotoFile">Файл зображення</label>
+      <input id="dishPhotoFile" name="file" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="dishPhotoHint" required>
+      <label for="dishPhotoCredit">Автор і ліцензія (за потреби)</label>
+      <input id="dishPhotoCredit" name="credit" type="text" maxlength="180" placeholder="Ім’я автора · CC BY 4.0">
+      <label for="dishPhotoSource">Посилання на джерело (за потреби)</label>
+      <input id="dishPhotoSource" name="source" type="url" maxlength="2048" placeholder="https://…">
+      <p class="form-error" id="dishPhotoError" role="alert" hidden></p>
+      <div class="dish-dialog-actions">
+        <button class="button button-outline" type="button" data-close-dialog="dishPhotoDialog">Скасувати</button>
+        <button class="button button-gold" type="submit">Зберегти фото</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast-message" id="siteToast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

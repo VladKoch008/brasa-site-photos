@@ -1,0 +1,86 @@
+[
+  {
+    "id": "bruschetta",
+    "name": "Брускета з томатами",
+    "category": "starters",
+    "description": "Хрусткий хліб, стиглі томати, базилік",
+    "price_kopecks": 18500
+  },
+  {
+    "id": "tartare",
+    "name": "Тартар із яловичини",
+    "category": "starters",
+    "description": "Ніжна яловичина, каперси, грінки",
+    "price_kopecks": 34500
+  },
+  {
+    "id": "salad",
+    "name": "Салат із печеним буряком",
+    "category": "starters",
+    "description": "Крем-сир, горіхи, медова заправка",
+    "price_kopecks": 24500
+  },
+  {
+    "id": "steak",
+    "name": "Стейк на грилі",
+    "category": "mains",
+    "description": "Яловичина, сезонні овочі, соус деміглас",
+    "price_kopecks": 69000
+  },
+  {
+    "id": "pasta",
+    "name": "Паста з грибами",
+    "category": "mains",
+    "description": "Вершковий соус, пармезан, свіжа зелень",
+    "price_kopecks": 32000
+  },
+  {
+    "id": "salmon",
+    "name": "Лосось із пюре",
+    "category": "mains",
+    "description": "Філе лосося, картопляне пюре, лимон",
+    "price_kopecks": 49500
+  },
+  {
+    "id": "cheesecake",
+    "name": "Чизкейк Brasa",
+    "category": "desserts",
+    "description": "Вершковий крем, ягідний соус",
+    "price_kopecks": 21000
+  },
+  {
+    "id": "fondant",
+    "name": "Шоколадний фондан",
+    "category": "desserts",
+    "description": "Теплий шоколад, ванільне морозиво",
+    "price_kopecks": 22500
+  },
+  {
+    "id": "lemonade",
+    "name": "Домашній лимонад",
+    "category": "drinks",
+    "description": "Лимон, м’ята, легка ігристість",
+    "price_kopecks": 14000
+  },
+  {
+    "id": "96ffcf50b2b3e429b7a56469",
+    "name": "Домашній борщ",
+    "category": "mains",
+    "description": "Запашний та ситний борщ з буряку, картоплі, зажарки з цибулі, на свиному бульйоні, поверне Вам смак рідного минулого.",
+    "price_kopecks": 25000
+  },
+  {
+    "id": "6ff7c8c2f1afbdec9f624d6d",
+    "name": "Пюре з курячими котлетами",
+    "category": "mains",
+    "description": "Ніжне картопляне пюре з вершковим маслом та котлети на пару доповнять борщ і домашню атмосферу",
+    "price_kopecks": 25000,
+    "photo": {
+      "file": "883a917562ecfe23.jpg",
+      "mime": "image/jpeg",
+      "revision": "883a917562ecfe23",
+      "credit": "",
+      "source": ""
+    }
+  }
+]
