@@ -668,19 +668,52 @@ class BrasaHandler(SimpleHTTPRequestHandler):
         self.send_json(200, {"ok": True})
 
 
+def insert_manager(connection, name: str, email: str, phone: str, password_hash: str) -> bool:
+    cursor = connection.execute(
+        "INSERT INTO users (name, email, phone, password_hash, role, created_at) "
+        "VALUES (?, ?, ?, ?, 'manager', ?) ON CONFLICT(email) DO NOTHING",
+        (name, email, phone, password_hash, now_iso()),
+    )
+    return cursor.rowcount == 1
+
+
+def bootstrap_manager() -> None:
+    raw_config = os.environ.get("BRASA_MANAGER_BOOTSTRAP")
+    if raw_config is None:
+        return
+    try:
+        config = json.loads(raw_config)
+        if not isinstance(config, dict):
+            raise ValueError
+        name = valid_name(config.get("name"))
+        email = valid_email(config.get("email"))
+        phone = valid_phone(config.get("phone"))
+        password_hash = config.get("password_hash")
+        match = re.fullmatch(r"pbkdf2_sha256\$(\d{6,7})\$[0-9a-f]{32}\$[0-9a-f]{64}", password_hash or "")
+        if not match or not 100_000 <= int(match[1]) <= 2_000_000:
+            raise ValueError
+    except (ValueError, TypeError):
+        raise SystemExit("Некоректні налаштування BRASA_MANAGER_BOOTSTRAP.") from None
+
+    with database() as connection:
+        created = insert_manager(connection, name, email, phone, password_hash)
+        if not created:
+            role = connection.execute("SELECT role FROM users WHERE email = ?", (email,)).fetchone()["role"]
+    if created:
+        print("Обліковий запис менеджера створено під час запуску.", flush=True)
+    elif role != "manager":
+        print("Менеджера не створено. Ця пошта належить звичайному користувачу.", flush=True)
+
+
 def create_manager(args):
     name = valid_name(args.name)
     email = valid_email(args.email)
     phone = valid_phone(args.phone)
     password = valid_password(getpass.getpass("Пароль менеджера: "))
     with database() as connection:
-        try:
-            connection.execute(
-                "INSERT INTO users (name, email, phone, password_hash, role, created_at) VALUES (?, ?, ?, ?, 'manager', ?)",
-                (name, email, phone, hash_password(password), now_iso()),
-            )
-        except sqlite3.IntegrityError:
-            raise SystemExit("Користувач із такою поштою вже існує.") from None
+        created = insert_manager(connection, name, email, phone, hash_password(password))
+    if not created:
+        raise SystemExit("Користувач із такою поштою вже існує.")
     print("Обліковий запис менеджера створено.")
 
 
@@ -702,6 +735,7 @@ def main():
     elif args.command == "create-manager":
         create_manager(args)
     else:
+        bootstrap_manager()
         server = ThreadingHTTPServer((args.host, args.port), BrasaHandler)
         print(f"Brasa: http://{args.host}:{args.port}/", flush=True)
         try:
