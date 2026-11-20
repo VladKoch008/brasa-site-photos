@@ -8,8 +8,8 @@
   <title>Brasa з фото: ресторан і бар</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/styles.css?v=photos2">
-  <script type="module" src="assets/portal.js?v=photos4"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=photos3">
+  <script type="module" src="assets/portal.js?v=photos5"></script>
 </head>
 <body>
   <div class="site-scene" aria-hidden="true"></div>
@@ -190,7 +190,13 @@
             <div class="auth-tabs" role="tablist" aria-label="Вхід або реєстрація"><button class="filter-button is-active" id="loginTab" type="button" role="tab" aria-selected="true" aria-controls="loginForm">Увійти</button><button class="filter-button" id="registerTab" type="button" role="tab" aria-selected="false" aria-controls="registerForm">Реєстрація</button></div>
             <form class="auth-form" id="loginForm" novalidate>
               <label for="loginEmail">Електронна пошта *</label><input id="loginEmail" name="email" type="email" autocomplete="email" maxlength="254" required>
-              <label for="loginPassword">Пароль *</label><input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+              <label for="loginPassword">Пароль *</label>
+              <div class="password-field">
+                <input id="loginPassword" name="password" type="password" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+                <button class="password-toggle" type="button" aria-label="Показати пароль" aria-controls="loginPassword" aria-pressed="false" hidden>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-eye"/><path class="password-toggle-slash" d="m4 4 16 16"/></svg>
+                </button>
+              </div>
               <p class="form-error" id="loginError" role="alert" hidden></p><button class="button button-gold" type="submit">Увійти</button>
             </form>
             <form class="auth-form" id="registerForm" novalidate hidden>
@@ -217,7 +223,7 @@
               </div>
               <div class="register-field">
                 <label for="registerPassword">Пароль *</label>
-                <div class="register-password">
+                <div class="password-field">
                   <input id="registerPassword" name="password" type="password" autocomplete="new-password" autocapitalize="off" autocorrect="off" spellcheck="false" minlength="8" aria-describedby="registerPasswordHint registerPasswordError" required>
                   <button class="password-toggle" type="button" aria-label="Показати пароль" aria-controls="registerPassword" aria-pressed="false" hidden>
                     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-eye"/><path class="password-toggle-slash" d="m4 4 16 16"/></svg>
@@ -228,7 +234,7 @@
               </div>
               <div class="register-field">
                 <label for="registerConfirm">Повторіть пароль *</label>
-                <div class="register-password">
+                <div class="password-field">
                   <input id="registerConfirm" name="password_confirm" type="password" autocomplete="new-password" autocapitalize="off" autocorrect="off" spellcheck="false" aria-describedby="registerConfirmHint registerConfirmError" required>
                   <button class="password-toggle" type="button" aria-label="Показати повторно введений пароль" aria-controls="registerConfirm" aria-pressed="false" hidden>
                     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-eye"/><path class="password-toggle-slash" d="m4 4 16 16"/></svg>

@@ -58,14 +58,14 @@ const portal = (() => {
     return Number.isNaN(date.getTime()) ? value : date.toLocaleDateString("uk-UA", { day: "numeric", month: "long", year: "numeric" });
   }
 
-  function setRegistrationPasswordVisibility(button, visible) {
+  function setPasswordVisibility(button, visible) {
     $(button.getAttribute("aria-controls")).type = visible ? "text" : "password";
     button.setAttribute("aria-pressed", String(visible));
   }
 
-  function hideRegistrationPasswords() {
-    for (const button of $("registerForm").querySelectorAll('.password-toggle[aria-pressed="true"]')) {
-      setRegistrationPasswordVisibility(button, false);
+  function hideAuthPasswords() {
+    for (const button of document.querySelectorAll('.auth-form .password-toggle[aria-pressed="true"]')) {
+      setPasswordVisibility(button, false);
     }
   }
 
@@ -73,7 +73,7 @@ const portal = (() => {
     const login = which === "login";
     $("loginForm").hidden = !login;
     $("registerForm").hidden = login;
-    if (login) hideRegistrationPasswords();
+    hideAuthPasswords();
     for (const [id, selected] of [["loginTab", login], ["registerTab", !login]]) {
       $(id).classList.toggle("is-active", selected);
       $(id).setAttribute("aria-selected", String(selected));
@@ -458,13 +458,14 @@ const portal = (() => {
     $("registerTab").addEventListener("click", () => showAuthTab("register"));
     $("loginForm").addEventListener("submit", event => { event.preventDefault(); submitAuth("loginForm", false); });
     const registerForm = $("registerForm");
-    for (const button of registerForm.querySelectorAll(".password-toggle")) {
+    for (const button of document.querySelectorAll(".auth-form .password-toggle")) {
       button.addEventListener("click", () => {
-        setRegistrationPasswordVisibility(button, button.getAttribute("aria-pressed") === "false");
+        setPasswordVisibility(button, button.getAttribute("aria-pressed") === "false");
       });
       button.hidden = false;
     }
-    registerForm.addEventListener("reset", hideRegistrationPasswords);
+    $("loginForm").addEventListener("reset", hideAuthPasswords);
+    registerForm.addEventListener("reset", hideAuthPasswords);
     registerForm.addEventListener("submit", event => { event.preventDefault(); submitAuth("registerForm", true); });
     registerForm.addEventListener("focusout", event => {
       const field = event.target.name;
