@@ -108,7 +108,10 @@ function dishCard(dish, number) {
 
 function renderMenu() {
   const query = byId("menuSearch").value.trim().toLocaleLowerCase("uk-UA");
-  const matches = dishes.filter(dish => (filter === "all" || dish.category === filter) && `${dish.name} ${dish.detail}`.toLocaleLowerCase("uk-UA").includes(query));
+  const matches = dishes.filter(dish => {
+    const searchText = `${dish.name} ${dish.detail} ${window.BrasaI18n.translate(dish.name)} ${window.BrasaI18n.translate(dish.detail)}`;
+    return (filter === "all" || dish.category === filter) && searchText.toLocaleLowerCase().includes(query);
+  });
   const grid = byId("menuGrid");
   grid.replaceChildren(...matches.map(dish => dishCard(dish, dishes.indexOf(dish) + 1)));
   byId("emptyResults").hidden = !menuReady || matches.length > 0;
@@ -512,3 +515,10 @@ renderOrder();
 renderCart();
 setView(location.hash.slice(1));
 refreshMenu();
+
+document.addEventListener("brasa:languagechange", () => {
+  renderMenu();
+  renderOrder();
+  renderCart();
+  renderBreadcrumbs();
+});

@@ -1,6 +1,7 @@
 "use strict";
 
-import "./app.js?v=photos3";
+import "./i18n.js?v=1";
+import "./app.js?v=photos4";
 
 const portal = (() => {
   const app = window.BrasaApp;
